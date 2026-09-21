@@ -29,9 +29,7 @@ Doan_LTUDM_Nhom1/
 
 ## 🚀 Hướng dẫn khởi chạy nhanh
 
-1. **Tạo Database**: Chạy các file script `.sql` trong thư mục `database/` trên MySQL.
-2. **Cấu hình Server**: Cập nhật `username` và `password` MySQL trong file `server/src/main/resources/application.properties`.
-3. **Mở dự án**: Mở trực tiếp thư mục `Doan_LTUDM_Nhom1` bằng IDE (IntelliJ IDEA / Eclipse / VS Code).
+
 4. **Khởi chạy**: 
    - Chạy Server trước: `ServerApplication.java`
    - Chạy Client sau: `ClientApplication.java`
