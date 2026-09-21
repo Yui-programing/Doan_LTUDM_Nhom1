@@ -17,6 +17,22 @@ Doan_LTUDM_Nhom1/
 
 ---
 
+## 🛠️ Công nghệ & Thư viện sử dụng
+
+* **Ngôn ngữ & Nền tảng chính**: 
+  * **Java 21 (JDK 21)**
+  * **Java Networking**: Java Sockets (`ServerSocket`, `Socket`), Lập trình đa luồng (Multithreading, Thread Pool), Stream I/O.
+* **Quản lý dự án**: **Apache Maven** (Cấu trúc dự án dạng Multi-Module: `client`, `server`, `common`).
+* **Giao diện người dùng (Client)**: **JavaFX 21** (`javafx-controls`, `javafx-fxml`) thiết kế UI Desktop chuẩn FXML.
+* **Cơ sở dữ liệu & Truy vấn (Server)**: 
+  * **MySQL 8.0**: Hệ quản trị cơ sở dữ liệu.
+  * **JDBC (`mysql-connector-j`)**: Kết nối và thực thi SQL từ Server đến MySQL.
+* **Định dạng dữ liệu (Protocol)**: **Jackson JSON** (`jackson-databind`, `jackson-datatype-jsr310`) để đóng gói (serialize) và giải mã (deserialize) gói tin JSON truyền qua Socket.
+* **Ghi vết nhật ký (Logging)**: **SLF4J** & **Logback Classic** cho Server.
+
+---
+---
+
 ## 📌 Chức năng chi tiết từng thư mục
 
 * **`client/`**: Đảm nhận hiển thị giao diện người dùng (JavaFX), tiếp nhận thao tác tra cứu/phát nhạc và gửi/nhận gói tin với Server qua Socket Client.
