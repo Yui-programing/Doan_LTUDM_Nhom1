@@ -12,6 +12,6 @@ public class ClientApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+       //Viết code tại đây
     }
 }

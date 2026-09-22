@@ -43,9 +43,26 @@ Doan_LTUDM_Nhom1/
 
 ---
 
-## 🚀 Hướng dẫn khởi chạy nhanh
+## 🚀 Hướng dẫn biên dịch và khởi chạy
+
+### 1. Biên dịch toàn bộ dự án
+Mở Terminal tại thư mục gốc của dự án (`Doan_LTUDM_Nhom1`) và chạy lệnh:
+```bash
+mvn clean install
+```
+
+### 2. Khởi chạy Server
+**Cách 1 (Sử dụng Maven CLI):**
+```bash
+mvn exec:java -pl server
+```
+
+### 3. Khởi chạy Client
+**Cách 1 (Sử dụng Maven CLI):**
+```bash
+mvn exec:java -pl client
+```
 
 
-4. **Khởi chạy**: 
-   - Chạy Server trước: `ServerApplication.java`
-   - Chạy Client sau: `ClientApplication.java`
+
+
