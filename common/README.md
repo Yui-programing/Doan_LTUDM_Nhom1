@@ -1,27 +1,41 @@
 # Module Common
 
-Thư mục chứa **mã nguồn dùng chung** được đóng gói thành thư viện và phụ thuộc bởi cả 2 module `client` và `server`.
+Module thư viện **dùng chung** giữa `client` và `server` trong mô hình phân tán Client - Server.
 
 ---
 
-## 📁 Cấu trúc package & thư mục con
+## 📁 Cấu trúc package
 
 ```text
 common/
-└── src/main/java/com/example/common/
-    ├── dto/             # Data Transfer Objects (Các đối tượng dữ liệu truyền nhận)
-    ├── protocol/        # Quy định cấu trúc gói tin giao tiếp giữa Client & Server
-    ├── request/         # Chứa các lớp biểu diễn yêu cầu từ Client (Request objects)
-    └── response/        # Chứa các lớp biểu diễn phản hồi từ Server (Response objects)
+├── pom.xml
+└── src/
+    └── main/
+        └── java/
+            └── com/example/common/
+                ├── model/       # Các đối tượng thực thể dữ liệu dùng chung (Song, Artist,...)
+                └── protocol/    # Định nghĩa giao thức gói tin truyền thông điệp Socket (Request, Response, Status,...)
 ```
 
 ---
 
 ## 📌 Chức năng chi tiết
 
-* **`protocol/`**: Định nghĩa các mã lệnh/hành động (Action Types như `SEARCH_SONG`, `STREAM_SONG`, `LOGIN`) và cấu trúc khung gói tin chung.
-* **`request/`**: Các lớp Java chứa dữ liệu Client gửi lên Server.    
-  *Ví dụ:* `SearchSongRequest` (chứa tên bài hát cần tìm).
-* **`response/`**: Các lớp Java chứa dữ liệu Server trả về cho Client.  
-  *Ví dụ:* `SearchSongResponse` (chứa danh sách kết quả bài hát tìm thấy và mã trạng thái success/failed).
-* **`dto/`**: Các đối tượng dữ liệu nhẹ truyền tải qua mạng (ví dụ `SongDTO`, `UserDTO`) giúp dễ dàng chuyển đổi thành JSON hoặc Serialize truyền qua Socket.
+* **`model/`**: Định nghĩa các lớp dữ liệu chung biểu diễn thông tin bài hát, ca sĩ, danh sách phát... được trao đổi tuần tự hóa giữa Client và Server.
+* **`protocol/`**: Định nghĩa chuẩn khung gói tin trao đổi qua TCP Socket:
+  * Kiểu thông điệp/yêu cầu (ví dụ: `SEARCH_BY_TITLE`, `SEARCH_BY_ARTIST`,...).
+  * Đối tượng yêu cầu (`Request`) và đối tượng phản hồi (`Response`).
+  * Trạng thái phản hồi (`ResponseStatus` như `SUCCESS`, `ERROR`, `NOT_FOUND`).
+
+---
+
+## ⚠️ Nguyên tắc ràng buộc bắt buộc (Architectural Rules)
+
+1. **CHỈ được chứa**:
+   * Data Model
+   * Protocol
+2. **TUYỆT ĐỐI KHÔNG chứa**:
+   * Thư viện JavaFX hoặc mã liên quan đến GUI.
+   * JDBC Driver, kết nối MySQL hoặc truy vấn cơ sở dữ liệu.
+   * Cài đặt kết nối Socket (`Socket`, `ServerSocket`).
+   * Logic nghiệp vụ (Business Logic).

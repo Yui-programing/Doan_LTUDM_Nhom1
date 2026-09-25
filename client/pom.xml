@@ -57,7 +57,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.1</version>
                 <configuration>
-                    <mainClass>com.example.client.Main</mainClass>
+                    <mainClass>com.example.client.ClientApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
